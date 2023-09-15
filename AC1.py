@@ -28,7 +28,6 @@ if ano % 4 == 0:
     else:
       print(ano, "não é bissexto")
   else:
-    print(ano, "é bissexto")
-    
+    print(ano, "é bissexto") 
 else:
   print(ano, "não é bissexto")
