@@ -22,8 +22,13 @@ def add_aluno(alunos, matricula, nome, email):
     return alunos
 
 def pede_dados():
-    with open('alunos.json', 'r') as file:
-        dados_alunos = json.load(file)
+    try:
+        with open('alunos.json', 'r') as file:
+            dados_alunos = json.load(file)
+    except FileNotFoundError:
+        dados_alunos = {}
+
+
     while True:
         matricula = input('Digite o número da matrícula')
         nome = input('Digite o nome do aluno: ')
@@ -31,6 +36,7 @@ def pede_dados():
         if matricula == "" or nome == "" or email == "":
             break
         add_aluno(dados_alunos, matricula, nome, email)
+        
     escrever_arquivo(dados_alunos)
 
 
